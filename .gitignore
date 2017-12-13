@@ -1,3 +1,5 @@
+*.swo
+*.swp
 # Built application files
 *.apk
 *.ap_

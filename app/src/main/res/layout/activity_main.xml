@@ -1,0 +1,66 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:id="@+id/content"
+	tools:context="${relativePackage}.${activityClass}" >
+
+	<Button
+		android:id="@+id/alert"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Alert Dialog"
+		android:onClick="alertClick"
+		/>
+
+	<Button
+		android:id="@+id/ok"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="ok Dialog"
+		android:onClick="okClick"
+		/>
+
+	<Button
+		android:id="@+id/yesno"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="yes no Dialog"
+		android:onClick="yesnoClick"
+		/>
+
+	<Button
+		android:id="@+id/yesnoother"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="yes no other Dialog"
+		android:onClick="yesnootherClick"
+		/>
+
+	<Button
+		android:id="@+id/view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="view Dialog"
+		android:onClick="viewClick"
+		/>
+
+	<Button
+		android:id="@+id/snackbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="snackbar"
+		android:onClick="snackbarClick"
+		/>
+
+	<Button
+		android:id="@+id/snackbarAction"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="snackbar with action"
+		android:onClick="snackbarActionClick"
+		/>
+
+</LinearLayout>
