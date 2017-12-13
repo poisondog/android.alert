@@ -48,6 +48,14 @@
 		/>
 
 	<Button
+		android:id="@+id/list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="list Dialog"
+		android:onClick="listClick"
+		/>
+
+	<Button
 		android:id="@+id/snackbar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

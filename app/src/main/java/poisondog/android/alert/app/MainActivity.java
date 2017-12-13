@@ -5,12 +5,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import poisondog.android.alert.DialogFactory;
 import poisondog.android.alert.DialogParameter;
+import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
-import android.support.v7.app.ActionBarActivity;
+import poisondog.core.Mission;
 
 
 public class MainActivity extends Activity {
@@ -83,6 +83,19 @@ public class MainActivity extends Activity {
 		showDialog(para);
 	}
 
+	public void listClick(View v) {
+		ShowListDialog task = new ShowListDialog(this, "list title", new Mission<String>() {
+			@Override
+			public Void execute(String input) {
+				DialogParameter para = new DialogParameter(MainActivity.this);
+				para.setTitle(input);
+				showDialog(para);
+				return null;
+			}
+		});
+		task.execute("str 1", "str 2", "str 3");
+	}
+
 	public void snackbarClick(View v) {
 		ShowSnackbar task = new ShowSnackbar();
 		task.execute(new ShowSnackbar.Parameter(findViewById(R.id.snackbar), "snack message"));
@@ -93,7 +106,9 @@ public class MainActivity extends Activity {
 		para.setAction("snack action", new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				System.out.println("click action: " + v);
+				DialogParameter para = new DialogParameter(MainActivity.this);
+				para.setTitle("click action");
+				showDialog(para);
 			}
 		});
 		ShowSnackbar task = new ShowSnackbar();
