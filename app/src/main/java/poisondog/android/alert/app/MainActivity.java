@@ -3,6 +3,7 @@ package poisondog.android.alert.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -97,12 +98,15 @@ public class MainActivity extends Activity {
 	}
 
 	public void snackbarClick(View v) {
+		ShowSnackbar.Parameter para = new ShowSnackbar.Parameter(findViewById(R.id.snackbar), "snack message");
+		para.setBackgroundColor(Color.RED);
 		ShowSnackbar task = new ShowSnackbar();
-		task.execute(new ShowSnackbar.Parameter(findViewById(R.id.snackbar), "snack message"));
+		task.execute(para);
 	}
 
 	public void snackbarActionClick(View v) {
 		ShowSnackbar.Parameter para = new ShowSnackbar.Parameter(findViewById(R.id.snackbar), "snack message");
+		para.setBackgroundColor(Color.BLUE);
 		para.setAction("snack action", new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
