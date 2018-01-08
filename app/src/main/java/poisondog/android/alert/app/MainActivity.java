@@ -11,7 +11,10 @@ import poisondog.android.alert.DialogFactory;
 import poisondog.android.alert.DialogParameter;
 import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
+import poisondog.android.alert.Notification;
 import poisondog.core.Mission;
+import poisondog.concurrent.SleepMission;
+import java.util.Random;
 
 
 public class MainActivity extends Activity {
@@ -116,6 +119,41 @@ public class MainActivity extends Activity {
 			}
 		});
 		ShowSnackbar task = new ShowSnackbar();
+		task.execute(para);
+	}
+
+	public void notificationClick(View v) {
+		Notification.Parameter para = new Notification.Parameter(this, "Notification Title", "content", R.drawable.ic_launcher);
+		Notification task = new Notification();
+		task.execute(para);
+	}
+
+	public void notificationAnotherClick(View v) {
+		Random random = new Random();
+		int id = random.nextInt(10);
+		Notification.Parameter para = new Notification.Parameter(id, this, "Notification Title", "id: " + id, R.drawable.ic_launcher);
+		Notification task = new Notification();
+		task.execute(para);
+	}
+
+	public void notificationProgressClick(View v) {
+		Notification.Parameter para = new Notification.Parameter(this, "Notification Progress", "complete progress...0/100%", R.drawable.ic_launcher);
+		Notification task = new Notification();
+		for (int i = 0; i < 100; i++) {
+			para.setText("complete progress..." + (i + 1) + "/100%");
+			para.setProgress(i + 1, 100);
+			task.execute(para);
+			new SleepMission(100l);
+		}
+		para.setText("Complete!");
+		para.removeProgress();
+		task.execute(para);
+	}
+
+	public void notificationIProgressClick(View v) {
+		Notification.Parameter para = new Notification.Parameter(this, "Notification Progress", "complete progress...", R.drawable.ic_launcher);
+		Notification task = new Notification();
+		para.setProgress(0, 0);
 		task.execute(para);
 	}
 

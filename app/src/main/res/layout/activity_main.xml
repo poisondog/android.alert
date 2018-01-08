@@ -71,4 +71,36 @@
 		android:onClick="snackbarActionClick"
 		/>
 
+	<Button
+		android:id="@+id/notification"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Notification"
+		android:onClick="notificationClick"
+		/>
+
+	<Button
+		android:id="@+id/notificationAnother"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Notification Another"
+		android:onClick="notificationAnotherClick"
+		/>
+
+	<Button
+		android:id="@+id/notificationProgress"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Notification Progress"
+		android:onClick="notificationProgressClick"
+		/>
+
+	<Button
+		android:id="@+id/notificationIndeterminateProgress"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Notification Indeterminate Progress"
+		android:onClick="notificationIProgressClick"
+		/>
+
 </LinearLayout>

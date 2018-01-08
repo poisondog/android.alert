@@ -19,6 +19,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v4.app.NotificationCompat;
 import poisondog.core.Mission;
+import android.media.RingtoneManager;
+import android.net.Uri;
 
 /**
  * @author Adam Huang
@@ -29,21 +31,30 @@ public class Notification implements Mission<Notification.Parameter> {
 	@Override
 	public Void execute(Notification.Parameter para) {
 		NotificationManager manager = (NotificationManager) para.mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-		manager.notify(1, para.mBuilder.build());
+		manager.notify(para.mID, para.mBuilder.build());
 		return null;
 	}
 
 	public static class Parameter {
+		private int mID;
 		private Context mContext;
 		private NotificationCompat.Builder mBuilder;
 
-		public Parameter(Context context) {
+		private Parameter(int id, Context context) {
+			mID = id;
 			mContext = context;
 			mBuilder = new NotificationCompat.Builder(context);
 		}
 
+		public Parameter(int id, Context context, String title, String text, int smallIcon) {
+			this(id, context);
+			setTitle(title);
+			setText(text);
+			setSmallIcon(smallIcon);
+		}
+
 		public Parameter(Context context, String title, String text, int smallIcon) {
-			this(context);
+			this(1, context, title, text, smallIcon);
 		}
 
 		public void setTitle(String title) {
@@ -58,8 +69,23 @@ public class Notification implements Mission<Notification.Parameter> {
 			mBuilder.setSmallIcon(smallIcon);
 		}
 
-		public void setProgress(int max, int progress, boolean indeterminate) {
-			mBuilder.setProgress(max, progress, indeterminate);
+		public void setProgress(int progress, int max) {
+			if (max == 0 && progress == 0)
+				mBuilder.setProgress(0, 0, true);
+			else
+				mBuilder.setProgress(max, progress, false);
+		}
+
+		public void removeProgress() {
+			mBuilder.setProgress(0, 0, false);
+		}
+
+		public void setSound(Uri uri) {
+			if (uri == null) {
+				mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+			} else {
+				mBuilder.setSound(uri);
+			}
 		}
 	}
 }
