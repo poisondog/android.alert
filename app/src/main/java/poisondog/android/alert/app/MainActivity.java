@@ -7,14 +7,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import java.util.Random;
 import poisondog.android.alert.DialogFactory;
 import poisondog.android.alert.DialogParameter;
+import poisondog.android.alert.Notification;
 import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
-import poisondog.android.alert.Notification;
-import poisondog.core.Mission;
 import poisondog.concurrent.SleepMission;
-import java.util.Random;
+import poisondog.core.Mission;
 
 
 public class MainActivity extends Activity {
