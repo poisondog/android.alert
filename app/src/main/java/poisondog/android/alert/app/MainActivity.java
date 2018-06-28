@@ -11,6 +11,7 @@ import java.util.Random;
 import poisondog.android.alert.DialogFactory;
 import poisondog.android.alert.DialogParameter;
 import poisondog.android.alert.Notification;
+import poisondog.android.alert.FloatingNotification;
 import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
 import poisondog.concurrent.SleepMission;
@@ -155,6 +156,13 @@ public class MainActivity extends Activity {
 		Notification task = new Notification();
 		para.setProgress(0, 0);
 		task.execute(para);
+	}
+
+	public void floatingnotificationClick(View v) {
+		FloatingNotification task = new FloatingNotification();
+		task.execute(this);
+		final ImageView image = new ImageView(this);
+		image.setImageResource(R.drawable.ic_launcher);
 	}
 
 }

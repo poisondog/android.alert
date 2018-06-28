@@ -103,4 +103,12 @@
 		android:onClick="notificationIProgressClick"
 		/>
 
+	<Button
+		android:id="@+id/floatingnotification"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Floating Notification"
+		android:onClick="floatingnotificationClick"
+		/>
+
 </LinearLayout>
