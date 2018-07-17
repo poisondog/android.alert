@@ -3,19 +3,27 @@ project.version = '0.0.1'
 
 buildscript {
 	repositories {
+		google()
 		jcenter()
 	}
 
 	dependencies {
-		classpath 'com.android.tools.build:gradle:2.2.1'
+		classpath 'com.android.tools.build:gradle:3.1.0'
+		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+		classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 	}
 }
 
-repositories {
-	jcenter()
+allprojects {
+	repositories {
+		google()
+		jcenter()
+	}
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: "com.jfrog.bintray"
 
 android {
 	compileSdkVersion 24
@@ -28,5 +36,69 @@ android {
 
 dependencies {
 	compile 'com.android.support:design:24.2.0'
-	compile project(':poisondog.core')
+	compile 'poisondog:poisondog.core:1.0.5'
 }
+
+
+ext {
+	siteUrl = 'https://github.com/poisondog/android.alert'
+	gitUrl = 'https://github.com/poisondog/android.alert.git'
+	currentVersion = version
+	groupId = group
+	artifactId = 'android.alert'
+	desc = 'Android alert'
+}
+
+install {
+	repositories.mavenInstaller {
+		pom {
+			project {
+				name artifactId
+				description desc
+				url siteUrl
+
+				packaging 'aar'
+				groupId groupId
+				artifactId artifactId
+				version currentVersion
+
+				licenses {
+					license {
+						name 'The Apache Software License, Version 2.0'
+						url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+				developers {
+					developer {
+						id 'poisondog'
+						name 'Adam Huang'
+						email 'poisondog@gmail.com'
+					}
+				}
+				scm {
+					connection gitUrl
+					developerConnection gitUrl
+					url siteUrl
+				}
+			}
+		}
+	}
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+	user = properties.getProperty("bintray.user")
+	key = properties.getProperty("bintray.apikey")
+	configurations = ['archives']
+	pkg {
+		repo = "poisondog"
+		name = artifactId
+		websiteUrl = siteUrl
+		vcsUrl = gitUrl
+		licenses = ["Apache-2.0"]
+		publish = true
+		publicDownloadNumbers = true
+	}
+}
+

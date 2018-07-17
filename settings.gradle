@@ -19,5 +19,3 @@ include 'services:webservice'
 
 //include ':poisondog.commons'
 //project(':poisondog.commons').projectDir = new File('../../poisondog/poisondog.commons/')
-include ':poisondog.core'
-project(':poisondog.core').projectDir = new File('../../poisondog/poisondog.core/')
