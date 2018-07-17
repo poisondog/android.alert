@@ -16,30 +16,50 @@
 package poisondog.android.alert;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import poisondog.core.Mission;
+import android.util.TypedValue;
+import poisondog.android.alert.R;
 
 /**
  * @author Adam Huang
  * @since 2017-04-05
  */
 public class DialogFactory implements Mission<DialogParameter> {
+	private AlertDialog.Builder mBuilder;
+
+	/**
+	 * Constructor
+	 */
+	public DialogFactory(Context context) {
+		TypedValue typedValue = new TypedValue();
+		context.getTheme().resolveAttribute(R.attr.DialogStyle, typedValue, true);
+		int resourceId = typedValue.resourceId;
+		mBuilder = new AlertDialog.Builder(context, resourceId);
+	}
+
+	/**
+	 * Constructor
+	 */
+	public DialogFactory(Context context, int styleID) {
+		mBuilder = new AlertDialog.Builder(context, styleID);
+	}
 
 	@Override
 	public AlertDialog execute(DialogParameter parameter) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(parameter.getContext());
 		if (!parameter.getTitle().isEmpty())
-			builder.setTitle(parameter.getTitle());
+			mBuilder.setTitle(parameter.getTitle());
 		if (!parameter.getMessage().isEmpty())
-			builder.setMessage(parameter.getMessage());
+			mBuilder.setMessage(parameter.getMessage());
 		if (!parameter.getPositiveText().isEmpty())
-			builder.setPositiveButton(parameter.getPositiveText(), parameter.getPositiveListener());
+			mBuilder.setPositiveButton(parameter.getPositiveText(), parameter.getPositiveListener());
 		if (!parameter.getNegativeText().isEmpty())
-			builder.setNegativeButton(parameter.getNegativeText(), parameter.getNegativeListener());
+			mBuilder.setNegativeButton(parameter.getNegativeText(), parameter.getNegativeListener());
 		if (!parameter.getNeutralText().isEmpty())
-			builder.setNeutralButton(parameter.getNeutralText(), parameter.getNeutralListener());
+			mBuilder.setNeutralButton(parameter.getNeutralText(), parameter.getNeutralListener());
 		if (parameter.getView() != null) {
-			builder.setView(parameter.getView());
+			mBuilder.setView(parameter.getView());
 		}
-		return builder.create();
+		return mBuilder.create();
 	}
 }

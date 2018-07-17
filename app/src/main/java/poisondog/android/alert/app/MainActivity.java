@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void showDialog(DialogParameter para) {
-		DialogFactory factory = new DialogFactory();
+		DialogFactory factory = new DialogFactory(this);
 		AlertDialog dialog = factory.execute(para);
 		dialog.show();
 	}

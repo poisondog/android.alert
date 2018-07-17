@@ -48,7 +48,7 @@ public class ShowListDialog implements Mission<String[]> {
 		if (!mTitle.isEmpty())
 			parameter.setTitle(mTitle);
 		parameter.setView(list);
-		DialogFactory factory = new DialogFactory();
+		DialogFactory factory = new DialogFactory(mContext);
 		final AlertDialog dialog = factory.execute(parameter);
 		list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 			@Override
