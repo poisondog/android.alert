@@ -14,7 +14,7 @@ import poisondog.android.alert.Notification;
 import poisondog.android.alert.FloatingNotification;
 import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
-import poisondog.concurrent.SleepMission;
+//import poisondog.concurrent.SleepMission;
 import poisondog.core.Mission;
 
 
@@ -144,7 +144,7 @@ public class MainActivity extends Activity {
 			para.setText("complete progress..." + (i + 1) + "/100%");
 			para.setProgress(i + 1, 100);
 			task.execute(para);
-			new SleepMission(100l);
+//			new SleepMission(100l);
 		}
 		para.setText("Complete!");
 		para.removeProgress();

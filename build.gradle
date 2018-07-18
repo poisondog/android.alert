@@ -13,11 +13,9 @@ buildscript {
 	}
 }
 
-allprojects {
-	repositories {
-		google()
-		jcenter()
-	}
+repositories {
+	google()
+	jcenter()
 }
 
 apply plugin: 'com.android.library'
@@ -27,8 +25,9 @@ apply plugin: "com.jfrog.bintray"
 android {
 	compileSdkVersion 24
 
-	lintOptions {
-		abortOnError false
+	defaultConfig {
+		minSdkVersion 11
+		multiDexEnabled true
 	}
 }
 
