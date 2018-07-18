@@ -1,27 +1,25 @@
 project.group = 'poisondog'
 project.version = '1.0.0'
 
-allprojects {
-	repositories {
-		maven {
-			url "http://poisondog.com:8081/repository/maven-public/"
-		}
-	}
+repositories {
+	google()
+	jcenter()
+	maven { url "https://dl.bintray.com/poisondog/poisondog" }
 }
 
 buildscript {
 	repositories {
+		google()
 		jcenter()
 	}
 	dependencies {
-		classpath 'com.android.tools.build:gradle:2.2.1'
+		classpath 'com.android.tools.build:gradle:3.1.0'
 	}
 }
 apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 24
-	buildToolsVersion '25.0.2'
 	defaultConfig {
 		versionCode 1
 		versionName project.version
@@ -41,9 +39,11 @@ android {
 }
 
 dependencies {
-	compile project(':library')
-	compile project(':poisondog.commons')
-	compile 'com.android.support:appcompat-v7:25.0.+'
+	implementation project(':library')
+	implementation ('poisondog:poisondog.commons:3.6.5') {
+		exclude module: 'xml-apis'
+	}
+	implementation 'com.android.support:appcompat-v7:25.0.+'
 }
 
 configurations {
