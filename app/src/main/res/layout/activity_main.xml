@@ -1,114 +1,129 @@
-<LinearLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:id="@+id/content"
-	tools:context="${relativePackage}.${activityClass}" >
+	android:layout_width="match_parent"
+	>
 
-	<Button
-		android:id="@+id/alert"
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Alert Dialog"
-		android:onClick="alertClick"
-		/>
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:id="@+id/content"
+		tools:context="${relativePackage}.${activityClass}" >
 
-	<Button
-		android:id="@+id/ok"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="ok Dialog"
-		android:onClick="okClick"
-		/>
 
-	<Button
-		android:id="@+id/yesno"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="yes no Dialog"
-		android:onClick="yesnoClick"
-		/>
+		<Button
+			android:id="@+id/alert"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Alert Dialog"
+			android:onClick="alertClick"
+			/>
 
-	<Button
-		android:id="@+id/yesnoother"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="yes no other Dialog"
-		android:onClick="yesnootherClick"
-		/>
+		<Button
+			android:id="@+id/ok"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="ok Dialog"
+			android:onClick="okClick"
+			/>
 
-	<Button
-		android:id="@+id/view"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="view Dialog"
-		android:onClick="viewClick"
-		/>
+		<Button
+			android:id="@+id/yesno"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="yes no Dialog"
+			android:onClick="yesnoClick"
+			/>
 
-	<Button
-		android:id="@+id/list"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="list Dialog"
-		android:onClick="listClick"
-		/>
+		<Button
+			android:id="@+id/yesnoother"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="yes no other Dialog"
+			android:onClick="yesnootherClick"
+			/>
 
-	<Button
-		android:id="@+id/snackbar"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="snackbar"
-		android:onClick="snackbarClick"
-		/>
+		<Button
+			android:id="@+id/view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="view Dialog"
+			android:onClick="viewClick"
+			/>
 
-	<Button
-		android:id="@+id/snackbarAction"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="snackbar with action"
-		android:onClick="snackbarActionClick"
-		/>
+		<Button
+			android:id="@+id/progress"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Progress Dialog"
+			android:onClick="progressClick"
+			/>
 
-	<Button
-		android:id="@+id/notification"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Notification"
-		android:onClick="notificationClick"
-		/>
+		<Button
+			android:id="@+id/list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="list Dialog"
+			android:onClick="listClick"
+			/>
 
-	<Button
-		android:id="@+id/notificationAnother"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Notification Another"
-		android:onClick="notificationAnotherClick"
-		/>
+		<Button
+			android:id="@+id/snackbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="snackbar"
+			android:onClick="snackbarClick"
+			/>
 
-	<Button
-		android:id="@+id/notificationProgress"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Notification Progress"
-		android:onClick="notificationProgressClick"
-		/>
+		<Button
+			android:id="@+id/snackbarAction"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="snackbar with action"
+			android:onClick="snackbarActionClick"
+			/>
 
-	<Button
-		android:id="@+id/notificationIndeterminateProgress"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Notification Indeterminate Progress"
-		android:onClick="notificationIProgressClick"
-		/>
+		<Button
+			android:id="@+id/notification"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Notification"
+			android:onClick="notificationClick"
+			/>
 
-	<Button
-		android:id="@+id/floatingnotification"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:text="Floating Notification"
-		android:onClick="floatingnotificationClick"
-		/>
+		<Button
+			android:id="@+id/notificationAnother"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Notification Another"
+			android:onClick="notificationAnotherClick"
+			/>
 
-</LinearLayout>
+		<Button
+			android:id="@+id/notificationProgress"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Notification Progress"
+			android:onClick="notificationProgressClick"
+			/>
+
+		<Button
+			android:id="@+id/notificationIndeterminateProgress"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Notification Indeterminate Progress"
+			android:onClick="notificationIProgressClick"
+			/>
+
+		<Button
+			android:id="@+id/floatingnotification"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Floating Notification"
+			android:onClick="floatingnotificationClick"
+			/>
+
+	</LinearLayout>
+</ScrollView>

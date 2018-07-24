@@ -14,8 +14,10 @@ import poisondog.android.alert.Notification;
 import poisondog.android.alert.FloatingNotification;
 import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
+import poisondog.android.alert.SimpleProgress;
 //import poisondog.concurrent.SleepMission;
 import poisondog.core.Mission;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends Activity {
@@ -86,6 +88,17 @@ public class MainActivity extends Activity {
 		para.setView(image);
 		para.setPositiveText("OK");
 		showDialog(para);
+	}
+
+	public void progressClick(View v) {
+		DialogParameter para = new DialogParameter(this);
+//		para.setTitle("progress title");
+		para.setMessage("progress message");
+		para.setNegativeText("Cancel");
+
+		SimpleProgress task = new SimpleProgress();
+		AlertDialog dialog = task.execute(para);
+		dialog.show();
 	}
 
 	public void listClick(View v) {
