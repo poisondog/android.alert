@@ -137,22 +137,22 @@ public class MainActivity extends Activity {
 	}
 
 	public void notificationClick(View v) {
-		Notification.Parameter para = new Notification.Parameter(this, "Notification Title", "content", R.drawable.ic_launcher);
-		Notification task = new Notification();
+		Notification.Parameter para = new Notification.Parameter("Notification Title", "content", R.drawable.ic_launcher);
+		Notification task = new Notification(this);
 		task.execute(para);
 	}
 
 	public void notificationAnotherClick(View v) {
 		Random random = new Random();
 		int id = random.nextInt(10);
-		Notification.Parameter para = new Notification.Parameter(id, this, "Notification Title", "id: " + id, R.drawable.ic_launcher);
-		Notification task = new Notification();
+		Notification.Parameter para = new Notification.Parameter(id, "Notification Title", "id: " + id, R.drawable.ic_launcher);
+		Notification task = new Notification(this);
 		task.execute(para);
 	}
 
 	public void notificationProgressClick(View v) {
-		Notification.Parameter para = new Notification.Parameter(this, "Notification Progress", "complete progress...0/100%", R.drawable.ic_launcher);
-		Notification task = new Notification();
+		Notification.Parameter para = new Notification.Parameter("Notification Progress", "complete progress...0/100%", R.drawable.ic_launcher);
+		Notification task = new Notification(this);
 		for (int i = 0; i < 100; i++) {
 			para.setText("complete progress..." + (i + 1) + "/100%");
 			para.setProgress(i + 1, 100);
@@ -165,8 +165,8 @@ public class MainActivity extends Activity {
 	}
 
 	public void notificationIProgressClick(View v) {
-		Notification.Parameter para = new Notification.Parameter(this, "Notification Progress", "complete progress...", R.drawable.ic_launcher);
-		Notification task = new Notification();
+		Notification.Parameter para = new Notification.Parameter("Notification Progress", "complete progress...", R.drawable.ic_launcher);
+		Notification task = new Notification(this);
 		para.setProgress(0, 0);
 		task.execute(para);
 	}
