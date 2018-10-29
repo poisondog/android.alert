@@ -38,14 +38,14 @@ public class FloatingNotification implements Mission<Context> {
 	@Override
 	public Void execute(Context context) {
 		if (Build.VERSION.SDK_INT >= 23) {
-			if(!Settings.canDrawOverlays(context)) {
-				Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-				context.startActivity(intent);
-			} else {
-				//Android6.0以上
-			}
+//			if(!Settings.canDrawOverlays(context)) {
+//				Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+//				context.startActivity(intent);
+//			} else {
+//			}
+			//Android6.0以上
 		} else {
-			//Android6.0以下，不用动态声明权限
+			//Android6.0以下
 		}
 		context.startService(new Intent(context, FloatingViewService.class));
 		return null;

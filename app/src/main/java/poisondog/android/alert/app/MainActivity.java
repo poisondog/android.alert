@@ -174,8 +174,8 @@ public class MainActivity extends Activity {
 	public void floatingnotificationClick(View v) {
 		FloatingNotification task = new FloatingNotification();
 		task.execute(this);
-		final ImageView image = new ImageView(this);
-		image.setImageResource(R.drawable.ic_launcher);
+//		final ImageView image = new ImageView(this);
+//		image.setImageResource(R.drawable.ic_launcher);
 	}
 
 }

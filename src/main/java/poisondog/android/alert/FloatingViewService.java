@@ -18,13 +18,13 @@ package poisondog.android.alert;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.os.IBinder;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 /**
@@ -43,10 +43,17 @@ public class FloatingViewService extends Service {
 		final ImageView image = new ImageView(this);
 		image.setImageResource(R.drawable.ic_launcher);
 
+		int LAYOUT_FLAG;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		} else {
+			LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
+		}
+
 		mParams = new WindowManager.LayoutParams(
 				WindowManager.LayoutParams.WRAP_CONTENT,
 				WindowManager.LayoutParams.WRAP_CONTENT,
-				WindowManager.LayoutParams.TYPE_PHONE,
+				LAYOUT_FLAG,
 				WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
 				PixelFormat.TRANSLUCENT);
 //		mParams.gravity = Gravity.RIGHT;

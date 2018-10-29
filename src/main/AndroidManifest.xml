@@ -4,6 +4,7 @@
 	package="poisondog.android.alert"
 	>
 	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	<uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
 	<application>
 		<service android:name=".FloatingViewService" />
 	</application>
