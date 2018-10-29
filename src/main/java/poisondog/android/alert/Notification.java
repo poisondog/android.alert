@@ -150,7 +150,7 @@ public class Notification implements Mission<Notification.Parameter> {
 		@Override
 		public android.app.Notification.Builder execute(Parameter para) {
 			if (para.mChannel == null)
-				para.setChannel(new Channel("alert.channel", "default channel"));
+				para.setChannel(Channel.low("alert.channel", "default channel"));
 
 			Channel pChannel = para.mChannel;
 			NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
