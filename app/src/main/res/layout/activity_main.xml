@@ -78,6 +78,14 @@
 			/>
 
 		<Button
+			android:id="@+id/snackbarTop"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="snackbarTop"
+			android:onClick="snackbarTopClick"
+			/>
+
+		<Button
 			android:id="@+id/snackbarAction"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"

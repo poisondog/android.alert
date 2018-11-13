@@ -14,6 +14,7 @@ import poisondog.android.alert.Notification;
 import poisondog.android.alert.FloatingNotification;
 import poisondog.android.alert.ShowListDialog;
 import poisondog.android.alert.ShowSnackbar;
+import poisondog.android.alert.SnackbarMission;
 import poisondog.android.alert.SimpleProgress;
 //import poisondog.concurrent.SleepMission;
 import poisondog.core.Mission;
@@ -119,6 +120,13 @@ public class MainActivity extends Activity {
 		para.setBackgroundColor(Color.RED);
 		ShowSnackbar task = new ShowSnackbar();
 		task.execute(para);
+	}
+
+	public void snackbarTopClick(View v) {
+		SnackbarMission mission = new SnackbarMission(findViewById(R.id.snackbar));
+		mission.setBackgroundColor(Color.YELLOW);
+		mission.setOnTop(true);
+		mission.execute("snack top message");
 	}
 
 	public void snackbarActionClick(View v) {

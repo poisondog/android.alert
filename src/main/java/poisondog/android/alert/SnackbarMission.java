@@ -15,10 +15,12 @@
  */
 package poisondog.android.alert;
 
-import android.support.design.widget.Snackbar;
-import android.view.View;
-import poisondog.core.Mission;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
+import poisondog.core.Mission;
 
 /**
  * @author Adam Huang
@@ -30,6 +32,7 @@ public class SnackbarMission implements Mission<String> {
 	private int mBackgroundColor;
 	private String mActionString;
 	private View.OnClickListener mListener;
+	private boolean mOnTop;
 
 	/**
 	 * Constructor
@@ -52,6 +55,10 @@ public class SnackbarMission implements Mission<String> {
 		mBackgroundColor = color;
 	}
 
+	public void setOnTop(boolean flag) {
+		mOnTop = flag;
+	}
+
 	@Override
 	public Void execute(String message) {
 		Snackbar bar = Snackbar.make(mView, message, mDuration);
@@ -59,6 +66,11 @@ public class SnackbarMission implements Mission<String> {
 			bar.setAction(mActionString, mListener);
 		View sbView = bar.getView();
 		sbView.setBackgroundColor(mBackgroundColor);
+		if (mOnTop) {
+			FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)sbView.getLayoutParams();
+			params.gravity = Gravity.TOP;
+			sbView.setLayoutParams(params);
+		}
 		bar.show();
 		return null;
 	}
