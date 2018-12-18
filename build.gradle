@@ -29,6 +29,9 @@ android {
 		minSdkVersion 11
 		multiDexEnabled true
 	}
+	lintOptions {
+		abortOnError false
+	}
 }
 
 dependencies {
@@ -36,4 +39,4 @@ dependencies {
 	implementation 'poisondog:poisondog.core:1.0.5'
 }
 
-apply from: 'bintray.gradle'
+apply from: 'https://raw.githubusercontent.com/poisondog/gradle.tool/master/android/bintray.gradle'
