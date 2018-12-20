@@ -30,6 +30,7 @@ public class SnackbarMission implements Mission<String> {
 	private View mView;
 	private int mDuration;
 	private int mBackgroundColor;
+	private int mActionColor;
 	private String mActionString;
 	private View.OnClickListener mListener;
 	private boolean mOnTop;
@@ -55,6 +56,10 @@ public class SnackbarMission implements Mission<String> {
 		mBackgroundColor = color;
 	}
 
+	public void setActionTextColor(int color) {
+		mActionColor = color;
+	}
+
 	public void setOnTop(boolean flag) {
 		mOnTop = flag;
 	}
@@ -64,6 +69,7 @@ public class SnackbarMission implements Mission<String> {
 		Snackbar bar = Snackbar.make(mView, message, mDuration);
 		if (mActionString != null && mListener != null)
 			bar.setAction(mActionString, mListener);
+		bar.setActionTextColor(mActionColor);
 		View sbView = bar.getView();
 		sbView.setBackgroundColor(mBackgroundColor);
 		if (mOnTop) {
