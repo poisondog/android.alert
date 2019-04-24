@@ -133,5 +133,13 @@
 			android:onClick="floatingnotificationClick"
 			/>
 
+		<Button
+			android:id="@+id/bottom_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="bottom list Dialog"
+			android:onClick="bottomListClick"
+			/>
+
 	</LinearLayout>
 </ScrollView>

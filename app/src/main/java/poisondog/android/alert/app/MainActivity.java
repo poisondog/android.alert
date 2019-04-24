@@ -13,12 +13,14 @@ import poisondog.android.alert.DialogParameter;
 import poisondog.android.alert.Notification;
 import poisondog.android.alert.FloatingNotification;
 import poisondog.android.alert.ShowListDialog;
+import poisondog.android.alert.ShowBottomListDialog;
 import poisondog.android.alert.ShowSnackbar;
 import poisondog.android.alert.SnackbarMission;
 import poisondog.android.alert.SimpleProgress;
 //import poisondog.concurrent.SleepMission;
 import poisondog.core.Mission;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -184,6 +186,17 @@ public class MainActivity extends Activity {
 		task.execute(this);
 //		final ImageView image = new ImageView(this);
 //		image.setImageResource(R.drawable.ic_launcher);
+	}
+
+	public void bottomListClick(View v) {
+		ShowBottomListDialog task = new ShowBottomListDialog(this, new Mission<String>() {
+			@Override
+			public Void execute(String input) {
+				Toast.makeText(MainActivity.this, input, Toast.LENGTH_LONG).show();
+				return null;
+			}
+		});
+		task.execute("str 1", "str 2", "str 3");
 	}
 
 }
