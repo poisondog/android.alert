@@ -44,26 +44,15 @@ public class ShowBottomCustomDialog implements Mission<View[]> {
 	}
 
 	@Override
-	public Void execute(View... input) throws Exception {
+	public BottomSheetDialog execute(View... input) throws Exception {
 		View root = LayoutInflater.from(mContext).inflate(R.layout.bottom_list_view, null, false);
 		LinearLayout linear = (LinearLayout) root.findViewById(R.id.container);
 		for (final View b : input) {
-//			b.setOnClickListener(new View.OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					try {
-//						mHandler.execute(b);
-//					} catch(Exception e) {
-//						e.printStackTrace();
-//					}
-//					mDialog.dismiss();
-//				}
-//			});
 			linear.addView(b);
 		}
 		mDialog.setContentView(root);
 		mDialog.show();
-		return null;
+		return mDialog;
 	}
 
 }
