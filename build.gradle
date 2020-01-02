@@ -1,5 +1,6 @@
-project.group = 'poisondog'
-project.version = '2.5.1'
+//project.group = 'poisondog'
+project.group = 'com.walton.cob'
+project.version = '2.5.2'
 
 buildscript {
 	repositories {
@@ -40,3 +41,4 @@ dependencies {
 }
 
 apply from: 'https://raw.githubusercontent.com/poisondog/gradle.tool/master/android/bintray.gradle'
+apply from: 'https://raw.githubusercontent.com/poisondog/gradle.tool/master/android/uploadNexus.gradle'
